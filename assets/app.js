@@ -31,7 +31,7 @@ function saveNotes() {
 }
 
 function formatDate(timestamp) {
-  return new Intl.DateTimeFormat("fr-FR", {
+  return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(timestamp));
@@ -50,7 +50,7 @@ function renderNotes(filter = "") {
     const empty = document.createElement("div");
     empty.className = "note";
     empty.innerHTML =
-      "<p class=\"note-body\">Les notes crées seront affichées ici.</p>";
+      "<p class=\"note-body\">No notes yet. Create one to get started.</p>";
     notesList.appendChild(empty);
     return;
   }
@@ -64,7 +64,7 @@ function renderNotes(filter = "") {
       const date = card.querySelector(".note-date");
       const body = card.querySelector(".note-body");
 
-      title.textContent = note.title || "Sans titre";
+      title.textContent = note.title || "Untitled";
       date.textContent = formatDate(note.updatedAt);
       body.textContent = note.body;
 
@@ -166,7 +166,7 @@ closeEdit.addEventListener("click", () => {
 
 clearAllButton.addEventListener("click", () => {
   if (!notes.length) return;
-  const confirmed = window.confirm("Supprimer toutes les notes ?");
+  const confirmed = window.confirm("Delete all notes?");
   if (!confirmed) return;
   notes = [];
   saveNotes();

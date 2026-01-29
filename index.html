@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Notes</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="topbar-actions">
-          <button class="ghost" id="clearAll" type="button">Tout effacer</button>
+          <button class="ghost" id="clearAll" type="button">Clear all</button>
         </div>
       </header>
 
@@ -31,8 +31,8 @@
         <section class="composer">
           <form id="noteForm" autocomplete="off">
             <label class="field">
-              <span>Titre</span>
-              <input type="text" id="noteTitle" maxlength="80" placeholder="Un titre court" />
+              <span>Title</span>
+              <input type="text" id="noteTitle" maxlength="80" placeholder="A short title" />
             </label>
             <label class="field">
               <span>Note</span>
@@ -40,22 +40,22 @@
                 id="noteBody"
                 rows="4"
                 maxlength="2000"
-                placeholder="Écrivez votre note ici..."
+                placeholder="Write your note here..."
                 required
               ></textarea>
             </label>
             <div class="composer-actions">
-              <div class="hint">Appyez sur ctrl + Entrée pour enregistrer</div>
-              <button class="primary" type="submit">Ajouter la note</button>
+              <div class="hint">Ctrl/Cmd + Enter to save</div>
+              <button class="primary" type="submit">Add note</button>
             </div>
           </form>
         </section>
 
         <section class="notes-section">
           <div class="notes-header">
-            <h2>Vos notes</h2>
+            <h2>Your notes</h2>
             <div class="search">
-              <input type="search" id="searchInput" placeholder="Rechercher..." />
+              <input type="search" id="searchInput" placeholder="Search..." />
             </div>
           </div>
           <div id="notesList" class="notes-grid"></div>
@@ -71,8 +71,8 @@
         </div>
         <p class="note-body"></p>
         <div class="note-actions">
-          <button class="ghost small" data-action="edit" type="button">Modifier</button>
-          <button class="ghost small" data-action="delete" type="button">Supprimer</button>
+          <button class="ghost small" data-action="edit" type="button">Edit</button>
+          <button class="ghost small" data-action="delete" type="button">Delete</button>
         </div>
       </article>
     </template>
@@ -80,11 +80,11 @@
     <dialog id="editDialog" class="modal">
       <form method="dialog" id="editForm">
         <header>
-          <h3>Modifier la note</h3>
+          <h3>Edit note</h3>
           <button class="ghost small" value="cancel" type="button" id="closeEdit">✕</button>
         </header>
         <label class="field">
-          <span>Titre</span>
+          <span>Title</span>
           <input type="text" id="editTitle" maxlength="80" />
         </label>
         <label class="field">
@@ -92,12 +92,12 @@
           <textarea id="editBody" rows="6" maxlength="2000" required></textarea>
         </label>
         <div class="modal-actions">
-          <button class="ghost" value="cancel" type="button">Annuler</button>
-          <button class="primary" value="confirm" type="submit">Enregistrer</button>
+          <button class="ghost" value="cancel" type="button">Cancel</button>
+          <button class="primary" value="confirm" type="submit">Save</button>
         </div>
       </form>
     </dialog>
 
-    <script src="app.js"></script>
+    <script src="assets/app.js"></script>
   </body>
 </html>
