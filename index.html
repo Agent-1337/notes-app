@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-icon">N</div>
+          <div class="brand-text">
+            <h1>Notes</h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost" id="clearAll" type="button">Tout effacer</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="composer">
+          <form id="noteForm" autocomplete="off">
+            <label class="field">
+              <span>Titre</span>
+              <input type="text" id="noteTitle" maxlength="80" placeholder="Un titre court" />
+            </label>
+            <label class="field">
+              <span>Note</span>
+              <textarea
+                id="noteBody"
+                rows="4"
+                maxlength="2000"
+                placeholder="Écrivez votre note ici..."
+                required
+              ></textarea>
+            </label>
+            <div class="composer-actions">
+              <div class="hint">Appyez sur ctrl + Entrée pour enregistrer</div>
+              <button class="primary" type="submit">Ajouter la note</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="notes-section">
+          <div class="notes-header">
+            <h2>Vos notes</h2>
+            <div class="search">
+              <input type="search" id="searchInput" placeholder="Rechercher..." />
+            </div>
+          </div>
+          <div id="notesList" class="notes-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="noteTemplate">
+      <article class="note">
+        <div class="note-header">
+          <h3 class="note-title"></h3>
+          <time class="note-date"></time>
+        </div>
+        <p class="note-body"></p>
+        <div class="note-actions">
+          <button class="ghost small" data-action="edit" type="button">Modifier</button>
+          <button class="ghost small" data-action="delete" type="button">Supprimer</button>
+        </div>
+      </article>
+    </template>
+
+    <dialog id="editDialog" class="modal">
+      <form method="dialog" id="editForm">
+        <header>
+          <h3>Modifier la note</h3>
+          <button class="ghost small" value="cancel" type="button" id="closeEdit">✕</button>
+        </header>
+        <label class="field">
+          <span>Titre</span>
+          <input type="text" id="editTitle" maxlength="80" />
+        </label>
+        <label class="field">
+          <span>Note</span>
+          <textarea id="editBody" rows="6" maxlength="2000" required></textarea>
+        </label>
+        <div class="modal-actions">
+          <button class="ghost" value="cancel" type="button">Annuler</button>
+          <button class="primary" value="confirm" type="submit">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
